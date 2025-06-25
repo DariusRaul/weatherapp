@@ -27,8 +27,7 @@ function makeRequest() {
         .then(res => res.json())
         .then(data => {
             headTemp.innerHTML = `${Math.round(data.main.temp)}°C`;
-            var sky = data.weather[0].main;
-            img.src = `${sky.toLowerCase()}.png`;
+            img.src = `${data.weather[0].main.toLowerCase()}.png`;
             headHumd.innerHTML = `${Math.round(data.main.humidity)}%`;
             headWind.innerHTML = `${Math.round(data.wind.speed)} km/h`
             cityName.innerText =  data.name;
